@@ -1,0 +1,252 @@
+body {
+    margin: 0 10%;
+    font-family: “Open Sans”, sans-serif;
+    font-size: 14px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+input {
+    width: 500px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    font-size: 12px;
+    padding: 5px;
+}
+
+h1,
+h2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #AAA;
+    font-size: 25px;
+}
+
+h3 {
+    font-weight: normal;
+    color: #FFF;
+    font-size: 14px;
+}
+
+.section {
+    margin: 20px 0;
+    padding: 10px;
+    /*border: 0.5px groove grey;
+    border-color: #103655;
+    border-style: groove;
+    border-radius: 5px;
+    */
+}
+
+.left {
+    float: left;
+    width: 45%;
+}
+
+.right {
+    float: right;
+    width: 45%;
+}
+
+.clear {
+    clear: both;
+    text-align: center;
+}
+
+
+/*
+table {
+ border-collapse: collapse;
+ width: 100%;
+}
+*/
+
+th,
+td {
+    text-align: left;
+    font-size: 12px;
+}
+
+
+/*tr:nth-child(even){background-color: #f2f2f2}*/
+
+th {
+    color: black;
+    font-size: 12px;
+}
+
+.error {
+    padding: 10px;
+    color: red;
+}
+
+.success {
+    padding: 10px;
+    color: green;
+    font-weight: bold;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.demo-content {
+    padding: 15px;
+    font-size: 14px;
+    min-height: 100;
+    margin-bottom: 10px;
+    background-color: #EEEEEE;
+}
+
+.demo-content.bg-alt {
+    padding: 15px;
+    font-size: 14px;
+    min-height: 100;
+    margin-bottom: 10px;
+    background-color: #EEEEEE;
+}
+
+.hidden {
+    display: none;
+}
+
+.navbar-custom {
+    background-color: #103655;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #33aa33;
+}
+
+.navbar-custom .navbar-brand {
+    color: #eeeeee;
+}
+
+.navbar-custom .navbar-toggle {
+    background-color: #eeeeee;
+}
+
+.navbar-custom .icon-bar {
+    background-color: #33aa33;
+}
+
+.navbar-link {
+    color: #fff;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+    color: #ffffff;
+    background-color: #F26522;
+    border-color: #F26522;
+}
+
+canvas {
+    background-color: #eee;
+    box-shadow: 10px 10px 5px #888888;
+    border: 1px solid #000000;
+}
+
+.row-bordered:after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin: 0 15px;
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';
+    /* essential for enabling glyphicon */
+    content: "\e114";
+    /* adjust as needed, taken from bootstrap.css */
+    float: right;
+    /* adjust as needed */
+    color: grey;
+    /* adjust as needed */
+}
+
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";
+    /* adjust as needed, taken from bootstrap.css */
+}
+
+.tab-pane {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0px 0px 5px 5px;
+    padding: 10px;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}
+
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+label {
+    color: black;
+    text-align: left;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    label {
+        text-align: left;
+        white-space: normal;
+    }
+}

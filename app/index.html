@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clinical Trials</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href='./app.css' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    .bs-example {
+        margin: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="mytabs">
+        <nav class="navbar navbar-custom navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="icon-bar"></span><a href="/#/" class="navbar-brand">Clinical Trail DApp</a>
+                </div>
+                <div>
+                    <p class="navbar-text navbar-right">
+                        Signed in as
+                        <a href="#" class="navbar-link" id="actor">Pharma</a>
+                    </p>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="header">
+        <h3>Clinical Trial Blockchain Demo</h3>
+    </div>
+    <div class="clear">
+        <div class="section">
+            <h2>Clinical Trial Blockchain Demo</h2>
+        </div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#sectionA" id="cro_tab"><i class="fa fa-user-md"></i> Pharma</a></li>
+        <li><a data-toggle="tab" href="#sectionB" id="reg_tab"><i class="fa fa-university"></i> Regulator</a></li>
+        <li><a data-toggle="tab" href="#sectionC" id="pharma_tab"><i class="fa fa-user"></i> CRO</a></li>
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-link"></i>  Blockchain View <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a data-toggle="tab" href="#dropdown1"><i class="fa fa-archive"></i> Audit Trail</a></li>
+                <li><a data-toggle="tab" href="#dropdown2"><i class="fa fa-cubes"></i> Block Explorer</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+            </br>
+            <div class="row row-bordered">
+                <div class="col-xs-10" id="pharmaAccount">
+                </div>
+            </div>
+            </br>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+          Start New Application
+        </a>
+      </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div>
+                                <div>
+                                    <button id="deployRegContract" class="btn btn-primary">Initiate Regulatory Contract</button>
+                                    <span class="success" id="deployRegContractSuccess"></span>
+                                </div>
+                                </br>
+                                <div>
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <th colspan="2" style="text-align:left">Regulatory Contract</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Address</td>
+                                                <td id="sectionAAddress"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Transaction Hash</td>
+                                                <td id="sectionATxnHash">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+          CRO Details
+        </a>
+      </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="demo-content bg-alt">
+                                <div class="form-group">
+                                    <label for="addCro">Add CRO</label>
+                                    <input type="text" class="form-control" id="addCro" placeholder="Enter CRO">
+                                </div>
+                                <div class="form-group">
+                                    <label for="addCroUrl">Add Primary Investigator</label>
+                                    <input type="text" class="form-control" id="addCroUrl" placeholder="Enter Primary Investigator">
+                                </div>
+                                <button id="addCroForApproval" class="btn btn-primary">Submit</button>
+                                <span class="success" id="submitCroSuccess"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+          Trial Proposal
+        </a>
+      </h4>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="demo-content bg-alt">
+                                <div class="form-group">
+                                    <label for="inputDrugName">Drug Name</label>
+                                    <input type="text" class="form-control" id="inputDrugName" placeholder="Enter Drug Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="datepickertrialfrom">Trial Date From</label>
+                                    <input type="text" class="form-control" id="datepickertrialfrom" placeholder="Enter Trial Date From">
+                                </div>
+                                <div class="form-group">
+                                    <label for="datepickertrialto">Trial Date To</label>
+                                    <input type="text" class="form-control" id="datepickertrialto" placeholder="Enter Trial Date To">
+                                </div>
+                                <button id="deployCtContract" class="btn btn-primary">Submit Trial Proposal</button>
+                                <span class="success" id="submitProposalSuccess"></span>
+                                </br>
+                                </br>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                        <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Upload Trial Protocol</span>
+                                    <input name="uploaded_file" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());store();" style="display: none;" type="file" id="source">
+                                    </span>
+                                    <span class="form-control"></span>
+                                </div>
+                                <div>
+                                    <span class="success" id="uploadIpfsSuccess"></span>
+                                </div>
+                                <div>
+                                    <span class="success" id="uploadProtocalSuccess"></span>
+                                </div>
+                                </br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+          Clinical Trial Results
+        </a>
+      </h4>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div>
+                                <button id="btnTrialDataPharma" class="btn btn-primary">Show Clinical Trial Results</button>
+                                <table id="trialdatatablepharma" class="table table-striped">
+                                    <thead id="traildataheaderpharma">
+                                    </thead>
+                                    <tbody id="trialdatabodypharma">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sectionB" class="tab-pane fade">
+            </br>
+            <div class="row row-bordered">
+                <div class="col-xs-10" id="regulatorAccount">
+                </div>
+            </div>
+            </br>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Regulatory Contract
+        </a>
+      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th colspan="2" style="text-align:left">Regulatory Contract</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td id="sectionBAddress"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transaction Hash</td>
+                                            <td id="sectionBTxnHash">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          CRO Details
+        </a>
+      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div id="crodiv" style="display:none;">
+                                <table id="crotable" class="table table-striped">
+                                    <thead>
+                                        <th>CRO</th>
+                                        <th>Primary Investigator</th>
+                                        <th>Address</th>
+                                        <th>Status</th>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                                <button id="approveCRO" class="btn btn-primary">Approve</button>
+                                <button id="rejectCRO" class="btn btn-primary">Reject</button>
+                                <span class="success" id="approveCroSuccess"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Trial Proposal
+        </a>
+      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div id="trialproposaldiv" style="display:none;">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th colspan="2" style="text-align:left">Proposal Snapshot</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Drug Name</td>
+                                            <td id="drugName"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Trial Date From</td>
+                                            <td id="tdfrom">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Trial Date To</td>
+                                            <td id="tdto">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Status</td>
+                                            <td id="tdstatus">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Protocol Document IPFS Hash</td>
+                                            <td id="hash">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </br>
+                                <button id="acceptProposal" class="btn btn-primary">Accept Proposal</button>
+                                <button id="acceptProposal" class="btn btn-primary">Reject Proposal</button>
+                                <div>
+                                    <span class="success" id="acceptProposalSuccess"></span>
+                                </div>
+                                <div>
+                                    <span class="success" id="clinicalTrialHash"></span>
+                                </div>
+                                </br>
+                                </br>
+                                <div>
+                                    <table class="table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <th colspan="2" style="text-align:left">Clinical Trial Contract</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Address</td>
+                                                <td id="clinicalTrialAddress"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Transaction Hash</td>
+                                                <td id="clinicalTrialCreationTxnHash">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sectionC" class="tab-pane fade">
+            </br>
+            <div class="row row-bordered">
+                <div class="col-xs-10" id="croAccount">
+                </div>
+            </div>
+            </br>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+          Add Clinical Trial Data
+        </a>
+      </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th colspan="2" style="text-align:left">Site Information</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Site No.</td>
+                                            <td>S001</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Site Name</td>
+                                            <td>Cook County Hospital</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Investigator</td>
+                                            <td>John Doe</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Site Status</td>
+                                            <td>Active</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <div>
+                                    <div class="error" id="addSubjectError" style="display: none;">You are not the owner of this clinical trial.</div>
+                                    <div class="error" id="addDataError" style="display: none;">Data points can be added only between the trial start and end dates.</div>
+                                    <button id="btnAddSubject" class="btn btn-primary">Add Subject Data</button>
+                                    <button id="btnAddDataPoints" class="btn btn-primary">Add Clinical Trial Data</button>
+                                    <div>
+                                        <span class="success" id="addSubjectHash"></span>
+                                    </div>
+                                    <div>
+                                        <span class="success" id="addDataPointstHash"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <!--<h5>Trial Data</h5>-->
+                                    <div id="trialdiv" style="display:none;">
+                                        <table id="subjecttable" class="table table-striped">
+                                            <thead>
+                                                <th>Name</th>
+                                                <th>DOB</th>
+                                                <th>Gender</th>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+          Clinical Trial Results
+        </a>
+      </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div>
+                                <button id="btnTrialData" class="btn btn-primary">Show Clinical Trial Results</button>
+                                <table id="trialdatatable" class="table table-striped">
+                                    <thead id="traildataheader">
+                                    </thead>
+                                    <tbody id="trialdatabody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dropdown1" class="tab-pane fade">
+            <div class="section">
+                <table id="audittrail" class="table table-striped">
+                    <thead id="audittrailheader">
+                        <th>Action</th>
+                        <th>Actor</th>
+                        <th>Description</th>
+                        <th>Timestamp</th>
+                    </thead>
+                    <tbody id="audittrailbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="dropdown2" class="tab-pane fade">
+            <div class="section">
+                <table id="”transactions" class="table table-striped">
+                    <thead id="transactionsheader">
+                        <th>Block</th>
+                        <th>Hash</th>
+                        <th>Parent Hash</th>
+                        <!--<th>Timestamp</th>-->
+                    </thead>
+                    <tbody id="transactionsbody">
+                    </tbody>
+                </table>
+            </div>
+            <div id="modalBlockDetails" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <center>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Block Details</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th colspan="2" style="text-align:left">Summary</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Block Number</td>
+                                            <td id="blkNum"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transaction Count</td>
+                                            <td id="transactionCount">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transactions</td>
+                                            <td id="transactions">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Received Time</td>
+                                            <td id="timestamp">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Difficulty</td>
+                                            <td id="difficulty">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nonce</td>
+                                            <td id="nonce"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Size</td>
+                                            <td id="size"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Miner</td>
+                                            <td id="miner"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gas Limit</td>
+                                            <td id="gasLimit"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gas Used</td>
+                                            <td id="gasUsed"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Receipt Root</td>
+                                            <td id="receiptRoot"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>State Root</td>
+                                            <td id="stateRoot"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sha3 Uncles </td>
+                                            <td id="sha3Uncles"> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button id="modalClose" class="btn btn-primary">Close</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/ipfs/dist/index.js"></script>
+<script src="https://unpkg.com/ipfs-api/dist/index.js"></script>
+<script src="./app.js"></script>
+
+</html>
