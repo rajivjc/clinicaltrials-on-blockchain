@@ -74,6 +74,9 @@ The applcation may now be started. This can be served by any web server but the 
 
 The application will be served by default at http://localhost:8081
 
+## Demo
+
+[![Click to watch demo](https://img.youtube.com/vi/JGumTDlrDnE/0.jpg)](https://www.youtube.com/watch?v=JGumTDlrDnE)
 
 
 ## 8. Useful Documentation
