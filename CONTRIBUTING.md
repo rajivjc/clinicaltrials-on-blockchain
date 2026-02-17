@@ -19,19 +19,25 @@ npm install -g truffle ethereumjs-testrpc
 testrpc
 ```
 
-3. Start IPFS daemon (terminal 2):
+3. Initialize IPFS (one-time setup on a fresh machine):
+
+```bash
+ipfs init
+```
+
+4. Start IPFS daemon (terminal 2):
 
 ```bash
 ipfs daemon
 ```
 
-4. Deploy contracts (terminal 3):
+5. Deploy contracts (terminal 3):
 
 ```bash
 truffle migrate
 ```
 
-5. Serve app:
+6. Serve app:
 
 ```bash
 truffle serve -p 8081
